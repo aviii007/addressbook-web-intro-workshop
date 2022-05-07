@@ -41,7 +41,7 @@ class Contact
     }
     set address(value) 
     {
-        const ADDRESS_REGEX = RegExp('^[a-zA-Z0-9#@,&]{3,}$');
+        const ADDRESS_REGEX = RegExp('^[a-zA-Z0-9#@*(),.&\\s]{3,}$');
         if (ADDRESS_REGEX.test(value)) 
         {
             this._address = value;
@@ -78,10 +78,12 @@ class Contact
         else throw "Zip code is incorrect";        
     }
 
+
     toString() 
     {
         return 'name=' + this._name + 
         ', phone number=' + this._phoneNumber + ', address=' + this._address + ', city=' + this._city + 
         ', state=' + this._state + ', zip code=' + this._zip;
     }
+    
 }
